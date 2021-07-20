@@ -154,6 +154,10 @@ class App extends React.Component {
                 {logoComp}
                 <AddHeroForm token={heroToken} team={team} addHeroToTeam={this.addHeroToTeam} addError={error} />
               </Route>
+              <Route exact path="/superhero_team">
+                {logoComp}
+                <AddHeroForm token={heroToken} team={team} addHeroToTeam={this.addHeroToTeam} addError={error} />
+              </Route>
               <Route path="/addHero">
                 {logoComp}
                 <AddHeroForm token={heroToken} team={team} addHeroToTeam={this.addHeroToTeam} addError={error} />

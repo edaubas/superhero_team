@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useDebugValue } from 'react';
 import axios from 'axios';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import HeroCard from './HeroCard';
@@ -15,7 +15,13 @@ export default class AddHeroForm extends React.Component {
 
     onSubmit(values) {
         this.setState({ apiResMess: 'Searching . . .' })
-        axios.get(`http://superheroapi.com/api/${this.props.token}/search/${values.name}`
+        axios.get(`https://superheroapi.com/api/${this.props.token}/search/${values.name}`
+            ,
+            {
+                headers: {
+                    'Access-Control-Allow-Origin': '*'
+                }
+            }
         )
             .then((res) => {
                 if (res.data.error) {
@@ -25,8 +31,8 @@ export default class AddHeroForm extends React.Component {
                 }
             })
             .catch(error => {
-                this.setState({ apiResMess: error.data.error })
-                console.log(error.data.error);
+                this.setState({ apiResMess: error.message })
+                console.log(error.message);
             }
             )
 

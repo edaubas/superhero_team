@@ -16,16 +16,14 @@ export default class SigninForm extends React.Component {
       email: values.email,
       password: values.password
     })
-
       .then((res) => {
         if (res.data.token) {
           this.props.isSignedIn(res.data.token);
         }
       })
       .catch(error => {
-        this.setState({ signError: error.response.data.error })
-        console.log(error.response.data.error);
-        return error.response.data.error;
+        this.setState({ signError: error.message })
+        console.log(error.toJSON());
       }
       )
 
