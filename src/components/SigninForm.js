@@ -11,8 +11,9 @@ export default class SigninForm extends React.Component {
   }
 
   onSubmit(values) {
-
-    axios.post('http://challenge-react.alkemy.org?', {
+    //Redirigimos llamada desde backend para evitar errores de seguridad(CORS)
+    //->setupProxy.js
+    axios.post('/api/user', {
       email: values.email,
       password: values.password
     })
@@ -22,8 +23,10 @@ export default class SigninForm extends React.Component {
         }
       })
       .catch(error => {
-        this.setState({ signError: error.message })
-        console.log(error.toJSON());
+        error.response !== undefined ?
+          this.setState({ signError: error.response.data.error })
+          :
+          this.setState({ signError: error.message })
       }
       )
 

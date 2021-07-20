@@ -151,28 +151,20 @@ class App extends React.Component {
           <div className='d-flex flex-column align-items-center justify-content-center'>
             <Switch>
               <Route exact path="/">
-                {logoComp}
-                <AddHeroForm token={heroToken} team={team} addHeroToTeam={this.addHeroToTeam} addError={error} />
-              </Route>
-              <Route exact path="/superhero_team">
-                {logoComp}
-                <AddHeroForm token={heroToken} team={team} addHeroToTeam={this.addHeroToTeam} addError={error} />
+                {logoComp} <AddHeroForm token={heroToken} team={team} addHeroToTeam={this.addHeroToTeam} addError={error} />
               </Route>
               <Route path="/addHero">
-                {logoComp}
-                <AddHeroForm token={heroToken} team={team} addHeroToTeam={this.addHeroToTeam} addError={error} />
+                {logoComp} <AddHeroForm token={heroToken} team={team} addHeroToTeam={this.addHeroToTeam} addError={error} />
               </Route>
               <Route path="/team">
-                {logoComp}
-                <Team team={team} delHeroFromTeam={this.delHeroFromTeam} />
+                {logoComp} <Team team={team} delHeroFromTeam={this.delHeroFromTeam} />
               </Route>
             </Switch>
           </div>
         </Router>
         :
         <div className='d-flex flex-column align-items-center justify-content-center'>
-          {logoComp}
-          <SigninForm isSignedIn={this.signIn} />
+          {logoComp} <SigninForm isSignedIn={this.signIn} />
         </div>
 
     )
