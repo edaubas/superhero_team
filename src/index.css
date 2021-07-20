@@ -1,0 +1,20 @@
+* {
+  font-family: 'Helvetica Narrow', sans-serif;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  background-color: #DCE1E3;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background: radial-gradient(circle, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
+
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
