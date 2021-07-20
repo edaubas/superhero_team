@@ -1,7 +1,7 @@
 import React from 'react';
 import SigninForm from './components/SigninForm';
 import AddHeroForm from './components/AddHeroForm';
-import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
+import { Switch, Route, Redirect, BrowserRouter as Router } from "react-router-dom";
 import Team from './components/Team';
 import NavBar from './components/NavBar';
 import logo from './img/logo.png';
@@ -150,9 +150,8 @@ class App extends React.Component {
           <NavBar />
           <div className='d-flex flex-column align-items-center justify-content-center'>
             <Switch>
-              <Route exact path="/">
-                {logoComp} <AddHeroForm token={heroToken} team={team} addHeroToTeam={this.addHeroToTeam} addError={error} />
-              </Route>
+              <Route exact path="/" render={() => <Redirect to="/addHero" /> }/>
+              <Route exact path="/superhero_team" render={() => <Redirect to="/addHero" /> }/>
               <Route path="/addHero">
                 {logoComp} <AddHeroForm token={heroToken} team={team} addHeroToTeam={this.addHeroToTeam} addError={error} />
               </Route>
