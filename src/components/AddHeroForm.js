@@ -15,14 +15,7 @@ export default class AddHeroForm extends React.Component {
 
     onSubmit(values) {
         this.setState({ apiResMess: 'Searching . . .' })
-        axios.get(`https://superheroapi.com/api/${this.props.token}/search/${values.name}`
-            ,
-            {
-                headers: {
-                    'Access-Control-Allow-Origin': '*'
-                }
-            }
-        )
+        axios.get(`https://superheroapi.com/api/${this.props.token}/search/${values.name}`)
             .then((res) => {
                 if (res.data.error) {
                     this.setState({ apiResMess: res.data.error })
